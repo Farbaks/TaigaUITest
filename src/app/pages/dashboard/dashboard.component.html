@@ -1,0 +1,186 @@
+<div class="content">
+    <div class="sidebar" id="smenu">
+        <p class="sidebar-header">DASHBOARD MENU</p>
+        <a class="sidebar-link" routerLink="/dashboard" routerLinkActive="active-link">
+            <div>
+                <img src="../../assets/icons/dashboard.svg" />
+                <p>Dashboard</p>
+            </div>
+            <tui-badge class="badge" status="primary" [value]="6"></tui-badge>
+        </a>
+        <a class="sidebar-link" routerLink="/email" routerLinkActive="active-link">
+            <div>
+                <img src="../../assets/icons/admin-products.svg" />
+                <p>Products</p>
+            </div>
+        </a>
+        <a class="sidebar-link" routerLink="/email" routerLinkActive="active-link">
+            <div>
+                <img src="../../assets/icons/admin-order.svg" />
+                <p>Orders</p>
+            </div>
+        </a>
+        <a class="sidebar-link" routerLink="/email" routerLinkActive="active-link">
+            <div>
+                <img src="../../assets/icons/admin-user.svg" />
+                <p>Customers</p>
+            </div>
+        </a>
+        <a class="sidebar-link" routerLink="/email" routerLinkActive="active-link">
+            <div>
+                <img src="../../assets/icons/email.svg" />
+                <p>Messages</p>
+            </div>
+        </a>
+        <a class="sidebar-link" (click)="this.toggle()">
+            <div>
+                <img src="../../assets/icons/admin-account.svg" />
+                <p>Account</p>
+            </div>
+            <div id="arrow"></div>
+        </a>
+        <tui-expand [expanded]="this.expanded">
+            <ng-template tuiExpandContent>
+                <div class="sub-div">
+                    <a class="sidebar-link" routerLink="/email" routerLinkActive="active-link">
+                        <div>
+                            <p>Settings</p>
+                        </div>
+                    </a>
+                    <a class="sidebar-link">
+                        <div>
+                            <p>Notifications</p>
+                        </div>
+                    </a>
+                </div>
+            </ng-template>
+        </tui-expand>
+        <a class="sidebar-link" routerLink="/email" routerLinkActive="active-link">
+            <div>
+                <img src="../../assets/icons/admin-report.svg" />
+                <p>Report</p>
+            </div>
+        </a>
+    </div>
+    <tui-scrollbar class="box">
+        <div class="main-content">
+            <div class="header">
+                <div class="title">
+                    <div class="side-button" (click)="this.showMenu()">
+                        <div class="bar1" id="b1"></div>
+                        <div class="bar1" id="b2"></div>
+                    </div>
+                    <p>Dashboard</p>
+                </div>
+
+                <div class="input">
+                    <img src="../../assets/icons/search.svg" />
+                    <input type="search" placeholder="Search page" />
+                </div>
+            </div>
+            <div class="overview">
+                <div class="item onequarterwidth">
+                    <div class="chart green">
+                        <tui-axes class="axes" [verticalLines]="0" [horizontalLines]="0" [axisX]="'none'"
+                            [axisY]="'none'">
+                            <tui-line-chart [x]="0" [y]="0" [width]="400" [height]="200" [smoothingFactor]="0"
+                                [value]="value" [filled]="true"></tui-line-chart>
+                        </tui-axes>
+                    </div>
+                    <div class="overview-div">
+                        <p class="heading">
+                            Total Views
+                        </p>
+                        <p class="number">1,900</p>
+                    </div>
+                </div>
+                <div class="item onequarterwidth">
+                    <div class="chart yellow">
+                        <tui-axes class="axes" [axisX]="'none'" [axisY]="'none'">
+                            <tui-line-chart [x]="0" [y]="0" [width]="400" [height]="200" [smoothingFactor]="0"
+                                [value]="value" [filled]="true"></tui-line-chart>
+                        </tui-axes>
+                    </div>
+                    <div class="overview-div">
+                        <p class="heading">
+                            Total Users
+                        </p>
+                        <p class="number">1,580</p>
+                    </div>
+                </div>
+                <div class="item onequarterwidth">
+                    <div class="chart">
+                        <tui-ring-chart class="tui-space_right-4" size="s" [value]="value3"></tui-ring-chart>
+                    </div>
+                    <div class="overview-div">
+                        <p class="heading">
+                            Top Products
+                        </p>
+                        <p class="number">1,900</p>
+                    </div>
+                </div>
+                <div class="item onequarterwidth">
+                    <div class="chart red">
+                        <tui-axes class="axes" [verticalLines]="0" [horizontalLines]="0" [axisX]="'none'"
+                            [axisY]="'none'">
+                            <tui-line-chart [x]="0" [y]="0" [width]="400" [height]="200" [smoothingFactor]="50"
+                                [value]="value" [filled]="false"></tui-line-chart>
+                        </tui-axes>
+                    </div>
+                    <div class="overview-div">
+                        <p class="heading">
+                            Total Sales
+                        </p>
+                        <p class="number">1,780</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="left twothirdwidth">
+                    <tui-tabs [(activeItemIndex)]="activeItemIndex">
+                        <button tuiTab (click)="changeTab(0)">Overview</button>
+                        <button tuiTab (click)="changeTab(1)">Cients</button>
+                    </tui-tabs>
+                    <div class="section1" *ngIf="this.activeItemIndex == 0">
+                        <div class="main">
+                            <p>Main Sales Report</p>
+                            <tui-axes class="axes" [verticalLines]="0" [horizontalLines]="5" [axisX]="'solid'"
+                                [axisY]="'none'">
+                                <tui-line-chart [x]="30" [y]="0" [width]="400" [height]="200" [smoothingFactor]="50"
+                                    [value]="value" [filled]="true" [dots]="true" [xStringify]="stringify"
+                                    [yStringify]="stringify"></tui-line-chart>
+                            </tui-axes>
+                        </div>
+
+                    </div>
+                    <div class="section" *ngIf="this.activeItemIndex == 1">
+                        <p>This is page 2</p>
+                    </div>
+                </div>
+                <div class="right onethirdwidth">
+                    <div class="wrapper">
+                        <p class="heading">Top 5 Products</p>
+                        <tui-ring-chart class="tui-space_right-4" size="l" [value]="value3"
+                            [(activeItemIndex)]="this.activeItemIndex1"></tui-ring-chart>
+                        <div class="legend">
+                            <tui-legend-item *ngFor="let label of labels; let index = index" class="legend-item"
+                                [color]="colorHandler(index)" [text]="label" [active]="isItemActive(index)"
+                                (tuiHoveredChange)="onHover(index, $event)">
+                                <tui-money [singleColor]="true" [value]="value3[index]"></tui-money>
+                            </tui-legend-item>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <p class="heading">Monthly Sales</p>
+                        <div class="chart-box">
+                            <tui-axes class="axes" [axisX]="'none'" [axisY]="'none'">
+                                <tui-bar-chart [value]="value4" [size]="null"></tui-bar-chart>
+                            </tui-axes>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </tui-scrollbar>
+</div>

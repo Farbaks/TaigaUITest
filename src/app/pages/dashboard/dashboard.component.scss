@@ -368,7 +368,10 @@
             width: 100%;
         }
         .header {
-            position: fixed;
+            position: fixed !important;
+        }
+        .overview {
+            margin-top: 60px;
         }
     }
     #smenu {

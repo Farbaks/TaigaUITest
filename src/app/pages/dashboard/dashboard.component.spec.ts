@@ -22,4 +22,10 @@ describe('DashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(' #toggle() should toggle expanded', () => {
+    expect(component.expanded).toBe(false, 'Off at first');
+    component.toggle();
+    expect(component.expanded).toBe(true, 'On after click');
+  });
 });

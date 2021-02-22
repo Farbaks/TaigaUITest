@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Dashboard';
   constructor() {
-    document.getElementById('title').innerHTML = "Dashboard";
+    // document.getElementById('title').innerHTML = "Dashboard";
   }
 }

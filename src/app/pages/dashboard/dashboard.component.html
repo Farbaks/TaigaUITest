@@ -91,7 +91,7 @@
                         <p class="heading">
                             Total Views
                         </p>
-                        <p class="number">1,900</p>
+                        <p class="number">{{ 1900 |currency:"NGN":"symbol"}}</p>
                     </div>
                 </div>
                 <div class="item onequarterwidth">
@@ -145,7 +145,7 @@
                         <div class="main">
                             <p>Main Sales Report</p>
                             <tui-axes class="axes" [verticalLines]="0" [horizontalLines]="5" [axisX]="'solid'"
-                                [axisY]="'none'">
+                                [axisY]="'solid'">
                                 <tui-line-chart [x]="30" [y]="0" [width]="400" [height]="200" [smoothingFactor]="50"
                                     [value]="value" [filled]="true" [dots]="true" [xStringify]="stringify"
                                     [yStringify]="stringify"></tui-line-chart>
